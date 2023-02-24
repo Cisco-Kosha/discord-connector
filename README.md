@@ -1,14 +1,14 @@
-# Kosha Freshservice Connector
+# Kosha Discord Connector
 
-Freshservice is a cloud-based customer support platform that was founded with the mission of enabling companies of all sizes to provide great customer service.
+Discord is a VoIP and instant messaging social platform. Users have the ability to communicate with voice calls, video calls, text messaging, media and files in private chats or as part of communities called "servers". Wikipedia
 
 The connector APIs allow you to perform 'RESTful' operations such as reading, modifying, adding or deleting data from your helpdesk. The APIs also support Cross-Origin Resource Sharing (CORS).
 
 
 
-![Freshservice](images/freshservice.jpg)
+![Discord](images/Discord.jpg)
 
-This Connector API exposes REST API endpoints to perform any operations on Freshservice v2 API in a simple, quick and intuitive fashion.
+This Connector API exposes  API endpoints to perform any operations on Discord Server using Discord Bot
 
 It describes various API operations, related request and response structures, and error codes.
 
@@ -22,7 +22,7 @@ To build the project binary, run
 
 ## Run locally
 
-To run the project, simply provide env variables to supply the API key and Freshdesk domain name.
+To run the project, simply provide env variables to supply the Discord BOT Token and  domain name.
 
 
 ```bash
