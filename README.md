@@ -6,7 +6,7 @@ The connector APIs allow you to perform 'RESTful' operations such as reading, mo
 
 
 
-![Discord](images/Discord.jpg)
+![Discord](images/Discord.png)
 
 This Connector API exposes  API endpoints to perform any operations on Discord Server using Discord Bot
 
