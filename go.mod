@@ -1,4 +1,4 @@
-module github.com/kosha/freshservice-connector
+module github.com/kosha/discord-connector
 
 go 1.18
 

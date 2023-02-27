@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/kosha/discordconnector/pkg/app"
-	"github.com/kosha/discordconnector/pkg/logger"
+	"github.com/kosha/discord-connector/pkg/app"
+	"github.com/kosha/discord-connector/pkg/logger"
 
 	"github.com/gorilla/mux"
 	"github.com/prometheus/client_golang/prometheus"

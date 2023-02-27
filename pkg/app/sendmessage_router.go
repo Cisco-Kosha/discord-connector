@@ -3,7 +3,7 @@ package app
 import (
 	"net/http"
 
-	"github.com/kosha/discordconnector/pkg/httpclient"
+	"github.com/kosha/discord-connector/pkg/httpclient"
 )
 
 // boardCastToAllChannelsAndServers godoc

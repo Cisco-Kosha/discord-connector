@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/kosha/discordconnector/pkg/config"
-	"github.com/kosha/discordconnector/pkg/logger"
+	"github.com/kosha/discord-connector/pkg/config"
+	"github.com/kosha/discord-connector/pkg/logger"
 )
 
 type App struct {
