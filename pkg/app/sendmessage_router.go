@@ -1,13 +1,23 @@
 package app
 
 import (
-	"fmt"
 	"net/http"
 
-	"github.com/bwmarrin/discordgo"
 	"github.com/kosha/freshservice-connector/pkg/httpclient"
 )
 
+// boardCastToAllChannelsAndServers godoc
+// @Summary Get details of the connector specification
+// @Description Send messages to all channels
+// @Tags Messages
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} object
+// @Failure      400  {object} string "bad request"
+// @Failure      403  {object}  string "permission denied"
+// @Failure      404  {object}  string "not found"
+// @Failure      500  {object}  string "internal server error"
+// @Router /api/v1/broadcast [post]
 func (a *App) boardCastToAllChannelsAndServers(w http.ResponseWriter, r *http.Request) {
 	//Allow CORS here By * or specific origin
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -30,16 +40,24 @@ func (a *App) boardCastToAllChannelsAndServers(w http.ResponseWriter, r *http.Re
 	})
 }
 
+// sendMessageToAllGeneralChannel godoc
+// @Summary Send message to general Channel
+// @Description Send messages to General Channel
+// @Tags Messages
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} object
+// @Failure      400  {object} string "bad request"
+// @Failure      403  {object}  string "permission denied"
+// @Failure      404  {object}  string "not found"
+// @Failure      500  {object}  string "internal server error"
+// @Router /api/v1/boardcast/general [post]
 func (a *App) sendMessageToAllGeneralChannel(w http.ResponseWriter, r *http.Request) {
 	//Allow CORS here By * or specific origin
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "*")
-	dg, err := discordgo.New(a.Cfg.GetBotToken())
-	if err != nil {
-		fmt.Println("error creating Discord session,", err)
-		return
-	}
+	dg, err := a.Cfg.GetDiscordSession()
 	// Open a websocket connection to Discord and begin listening.
 	// Discord Bot is online here
 	err = dg.Open()

@@ -6,7 +6,7 @@ func (a *App) initializeRoutes() {
 	// specification routes
 	a.Router.HandleFunc(apiV1+"/specification/list", a.listConnectorSpecification).Methods("GET", "OPTIONS")
 	//  routes
-	a.Router.HandleFunc(apiV1+"/boardcast", a.boardCastToAllChannelsAndServers).Methods("POST", "OPTIONS")
-	a.Router.HandleFunc(apiV1+"/boardcast/general", a.sendMessageToAllGeneralChannel).Methods("POST", "OPTIONS")
+	a.Router.HandleFunc(apiV1+"/broadcast", a.boardCastToAllChannelsAndServers).Methods("POST", "OPTIONS")
+	a.Router.HandleFunc(apiV1+"/broadcast/general", a.sendMessageToAllGeneralChannel).Methods("POST", "OPTIONS")
 
 }

@@ -17,8 +17,6 @@ func Get() *Config {
 	conf := &Config{}
 
 	flag.StringVar(&conf.botToken, "bottoken", os.Getenv("BOT_TOKEN"), "Discord BOT TOKEN")
-	flag.StringVar(&conf.domainName, "discordDomainName", os.Getenv("DOMAIN_NAME"), "Discord Domain Name")
-
 	flag.Parse()
 
 	return conf

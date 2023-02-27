@@ -15,7 +15,7 @@ import (
 // @Failure      403  {object}  string "permission denied"
 // @Failure      404  {object}  string "not found"
 // @Failure      500  {object}  string "internal server error"
-// @Router /api/v2/specification/list [get]
+// @Router /api/v1/specification/list [get]
 func (a *App) listConnectorSpecification(w http.ResponseWriter, r *http.Request) {
 
 	//Allow CORS here By * or specific origin
