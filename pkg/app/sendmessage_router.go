@@ -81,6 +81,8 @@ func (a *App) sendMessageToAllGeneralChannel(w http.ResponseWriter, r *http.Requ
 // @Tags Messages
 // @Accept  json
 // @Produce  json
+// @Param baseId path string true "Base Id"
+// @Param tableId path string true "Table Id"
 // @Success 200 {object} object
 // @Failure      400  {object} string "bad request"
 // @Failure      403  {object}  string "permission denied"
