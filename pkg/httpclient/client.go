@@ -6,8 +6,12 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+type Response struct {
+	message string
+}
+
 // To post message to all the channels - or boardcast
-func BoardCastToAllChannelsAndServers(s *discordgo.Session) {
+func BoardCastToAllChannelsAndServers(s *discordgo.Session, data []byte) {
 	for _, guild := range s.State.Guilds {
 		channels, _ := s.GuildChannels(guild.ID)
 		for _, c := range channels {
@@ -16,14 +20,14 @@ func BoardCastToAllChannelsAndServers(s *discordgo.Session) {
 			}
 			s.ChannelMessageSend(
 				c.ID,
-				fmt.Sprintf("From DiscordConnector --  Channel name is %q", c.Name),
+				fmt.Sprintf("From DiscordConnector --  Message is %q", string(data)),
 			)
 		}
 	}
 }
 
 // To post the message only to general channel
-func SendMessageToGeneralChannel(s *discordgo.Session) {
+func SendMessageToGeneralChannel(s *discordgo.Session, data []byte) {
 	for _, guild := range s.State.Guilds {
 		channels, _ := s.GuildChannels(guild.ID)
 		for _, c := range channels {
@@ -36,14 +40,14 @@ func SendMessageToGeneralChannel(s *discordgo.Session) {
 			}
 			s.ChannelMessageSend(
 				c.ID,
-				fmt.Sprintf("From DiscordConnector --  Channel name is %q", c.Name),
+				fmt.Sprintf("From DiscordConnector --  Message is  %q", string(data)),
 			)
 		}
 	}
 }
 
 // To post the message with guildid and channelId
-func SendMessageToSpecificGuildAndChannel(s *discordgo.Session, guildId string, channelId string) {
+func SendMessageToSpecificGuildAndChannel(s *discordgo.Session, guildId string, channelId string, data []byte) {
 	channels, _ := s.GuildChannels(guildId)
 	for _, c := range channels {
 		if c.ID != channelId {
@@ -55,7 +59,7 @@ func SendMessageToSpecificGuildAndChannel(s *discordgo.Session, guildId string, 
 		}
 		s.ChannelMessageSend(
 			c.ID,
-			fmt.Sprintf("From DiscordConnector --  Channel name is %q", c.Name),
+			fmt.Sprintf("From DiscordConnector --  Message is %q", string(data)),
 		)
 	}
 }

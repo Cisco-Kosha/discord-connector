@@ -12,7 +12,7 @@ func (a *App) initializeRoutes() {
 	//  routes
 	a.Router.HandleFunc(apiV1+"/broadcast", a.boardCastToAllChannelsAndServers).Methods("POST", "OPTIONS")
 	a.Router.HandleFunc(apiV1+"/broadcast/general", a.sendMessageToAllGeneralChannel).Methods("POST", "OPTIONS")
-	a.Router.HandleFunc(apiV1+"/api/v1/guild/{guildId}/channel/{channelId}", a.sendMessageToSpecificGuildAndChannel).Methods("POST", "OPTIONS")
+	a.Router.HandleFunc(apiV1+"/guild/{guildId}/channel/{channelId}", a.sendMessageToSpecificGuildAndChannel).Methods("POST", "OPTIONS")
 
 	// swagger-docs
 	a.Router.PathPrefix("/docs").Handler(httpSwagger.WrapHandler)

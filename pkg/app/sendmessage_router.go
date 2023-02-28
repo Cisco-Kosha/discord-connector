@@ -1,6 +1,7 @@
 package app
 
 import (
+	"io/ioutil"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -24,6 +25,12 @@ func (a *App) boardCastToAllChannelsAndServers(w http.ResponseWriter, r *http.Re
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "*")
+	var data []byte
+	if r.Body != nil {
+		data, _ = ioutil.ReadAll(r.Body)
+	} else {
+		respondWithError(w, http.StatusBadRequest, "Empty Body")
+	}
 	dg, err := a.Cfg.GetDiscordSession()
 	// Open a websocket connection to Discord and begin listening.
 	// Discord Bot is online here
@@ -35,7 +42,7 @@ func (a *App) boardCastToAllChannelsAndServers(w http.ResponseWriter, r *http.Re
 		respondWithError(w, http.StatusOK, err.Error())
 	}
 	// make a httpclient api call
-	httpclient.BoardCastToAllChannelsAndServers(dg)
+	httpclient.BoardCastToAllChannelsAndServers(dg, data)
 	respondWithJSON(w, http.StatusOK, map[string]string{
 		"Data Sent": "Data Sent to all channels",
 	})
@@ -58,6 +65,12 @@ func (a *App) sendMessageToAllGeneralChannel(w http.ResponseWriter, r *http.Requ
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "*")
+	var data []byte
+	if r.Body != nil {
+		data, _ = ioutil.ReadAll(r.Body)
+	} else {
+		respondWithError(w, http.StatusBadRequest, "Empty Body")
+	}
 	dg, err := a.Cfg.GetDiscordSession()
 	// Open a websocket connection to Discord and begin listening.
 	// Discord Bot is online here
@@ -69,7 +82,7 @@ func (a *App) sendMessageToAllGeneralChannel(w http.ResponseWriter, r *http.Requ
 		respondWithError(w, http.StatusOK, err.Error())
 	}
 	// make a httpclient api call
-	httpclient.SendMessageToGeneralChannel(dg)
+	httpclient.SendMessageToGeneralChannel(dg, data)
 	respondWithJSON(w, http.StatusOK, map[string]string{
 		"Data Sent": "Data Sent to General Channels in a Server",
 	})
@@ -94,6 +107,12 @@ func (a *App) sendMessageToSpecificGuildAndChannel(w http.ResponseWriter, r *htt
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "*")
+	var data []byte
+	if r.Body != nil {
+		data, _ = ioutil.ReadAll(r.Body)
+	} else {
+		respondWithError(w, http.StatusBadRequest, "Empty Body")
+	}
 	vars := mux.Vars(r)
 	guildId := vars["guildId"]
 	channelId := vars["channelId"]
@@ -108,7 +127,7 @@ func (a *App) sendMessageToSpecificGuildAndChannel(w http.ResponseWriter, r *htt
 		respondWithError(w, http.StatusOK, err.Error())
 	}
 	// make a httpclient api call
-	httpclient.SendMessageToSpecificGuildAndChannel(dg, guildId, channelId)
+	httpclient.SendMessageToSpecificGuildAndChannel(dg, guildId, channelId, data)
 	respondWithJSON(w, http.StatusOK, map[string]string{
 		"Data Sent": "Data Sent to General Channels in a Server",
 	})
