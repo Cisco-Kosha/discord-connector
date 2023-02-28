@@ -72,6 +72,48 @@ paths:
       summary: Send message to general Channel
       tags:
       - Messages
+  /api/v1/guild/{guildId}/channel/{channelId}:
+    post:
+      consumes:
+      - application/json
+      description: Send messages to General Channel
+      parameters:
+      - description: Base Id
+        in: path
+        name: baseId
+        required: true
+        type: string
+      - description: Table Id
+        in: path
+        name: tableId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+        "400":
+          description: bad request
+          schema:
+            type: string
+        "403":
+          description: permission denied
+          schema:
+            type: string
+        "404":
+          description: not found
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Send message to general Channel
+      tags:
+      - Messages
   /api/v1/specification/list:
     get:
       consumes:
