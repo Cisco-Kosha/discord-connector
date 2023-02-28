@@ -41,3 +41,21 @@ func SendMessageToGeneralChannel(s *discordgo.Session) {
 		}
 	}
 }
+
+// To post the message with guildid and channelId
+func SendMessageToSpecificGuildAndChannel(s *discordgo.Session, guildId string, channelId string) {
+	channels, _ := s.GuildChannels(guildId)
+	for _, c := range channels {
+		if c.ID != channelId {
+			continue
+		}
+		// check if it's a type text or audio
+		if c.Type != discordgo.ChannelTypeGuildText {
+			continue
+		}
+		s.ChannelMessageSend(
+			c.ID,
+			fmt.Sprintf("From DiscordConnector --  Channel name is %q", c.Name),
+		)
+	}
+}
