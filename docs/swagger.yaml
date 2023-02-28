@@ -10,7 +10,69 @@ info:
   title: Discord Connector API
   version: "2.0"
 paths:
-  /api/v2/specification/list:
+  /api/v1/broadcast:
+    post:
+      consumes:
+      - application/json
+      description: Send messages to all channels
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+        "400":
+          description: bad request
+          schema:
+            type: string
+        "403":
+          description: permission denied
+          schema:
+            type: string
+        "404":
+          description: not found
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Get details of the connector specification
+      tags:
+      - Messages
+  /api/v1/broadcast/general:
+    post:
+      consumes:
+      - application/json
+      description: Send messages to General Channel
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object
+        "400":
+          description: bad request
+          schema:
+            type: string
+        "403":
+          description: permission denied
+          schema:
+            type: string
+        "404":
+          description: not found
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Send message to general Channel
+      tags:
+      - Messages
+  /api/v1/specification/list:
     get:
       consumes:
       - application/json

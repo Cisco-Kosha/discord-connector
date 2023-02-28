@@ -51,7 +51,7 @@ func (a *App) boardCastToAllChannelsAndServers(w http.ResponseWriter, r *http.Re
 // @Failure      403  {object}  string "permission denied"
 // @Failure      404  {object}  string "not found"
 // @Failure      500  {object}  string "internal server error"
-// @Router /api/v1/boardcast/general [post]
+// @Router /api/v1/broadcast/general [post]
 func (a *App) sendMessageToAllGeneralChannel(w http.ResponseWriter, r *http.Request) {
 	//Allow CORS here By * or specific origin
 	w.Header().Set("Access-Control-Allow-Origin", "*")
