@@ -74,6 +74,9 @@
           "Messages"
         ],
         "description": "Send messages to all channels",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Message"
+        },
         "summary": "Get details of the connector specification"
       }
     },
@@ -135,6 +138,9 @@
           "Messages"
         ],
         "description": "Send messages to General Channel",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Message"
+        },
         "summary": "Send message to general Channel"
       }
     },
@@ -142,18 +148,18 @@
       "post": {
         "parameters": [
           {
-            "description": "Base Id",
+            "description": "Channel Id",
             "in": "path",
-            "name": "baseId",
+            "name": "channelId",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "description": "Table Id",
+            "description": "Guild Id",
             "in": "path",
-            "name": "tableId",
+            "name": "guildId",
             "required": true,
             "schema": {
               "type": "string"
@@ -216,6 +222,16 @@
           "Messages"
         ],
         "description": "Send messages to General Channel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          },
+          "description": "Enter Message to be Sent to Discord"
+        },
         "summary": "Send message to general Channel"
       }
     },
@@ -278,6 +294,20 @@
         ],
         "description": "Get all environment variables that need to be supplied",
         "summary": "Get details of the connector specification"
+      }
+    }
+  },
+  "components": {
+    "requestBodies": {
+      "Message": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "description": "Enter Message to be Sent to Discord"
       }
     }
   }

@@ -14,6 +14,7 @@ import (
 // @Tags Messages
 // @Accept  json
 // @Produce  json
+// @Param Message body object false "Enter Message to be Sent to Discord"
 // @Success 200 {object} object
 // @Failure      400  {object} string "bad request"
 // @Failure      403  {object}  string "permission denied"
@@ -55,6 +56,7 @@ func (a *App) boardCastToAllChannelsAndServers(w http.ResponseWriter, r *http.Re
 // @Accept  json
 // @Produce  json
 // @Success 200 {object} object
+// @Param Message body object false "Enter Message to be Sent to Discord"
 // @Failure      400  {object} string "bad request"
 // @Failure      403  {object}  string "permission denied"
 // @Failure      404  {object}  string "not found"
@@ -96,6 +98,7 @@ func (a *App) sendMessageToAllGeneralChannel(w http.ResponseWriter, r *http.Requ
 // @Produce  json
 // @Param channelId path string true "Channel Id"
 // @Param guildId path string true "Guild Id"
+// @Param Message body object false "Enter Message to be Sent to Discord"
 // @Success 200 {object} object
 // @Failure      400  {object} string "bad request"
 // @Failure      403  {object}  string "permission denied"

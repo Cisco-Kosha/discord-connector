@@ -6,7 +6,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-type Response struct {
+type Message struct {
 	message string
 }
 

@@ -32,6 +32,16 @@ const docTemplate = `{
                     "Messages"
                 ],
                 "summary": "Get details of the connector specification",
+                "parameters": [
+                    {
+                        "description": "Enter Message to be Sent to Discord",
+                        "name": "Message",
+                        "in": "body",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -79,6 +89,16 @@ const docTemplate = `{
                     "Messages"
                 ],
                 "summary": "Send message to general Channel",
+                "parameters": [
+                    {
+                        "description": "Enter Message to be Sent to Discord",
+                        "name": "Message",
+                        "in": "body",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -129,17 +149,25 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Base Id",
-                        "name": "baseId",
+                        "description": "Channel Id",
+                        "name": "channelId",
                         "in": "path",
                         "required": true
                     },
                     {
                         "type": "string",
-                        "description": "Table Id",
-                        "name": "tableId",
+                        "description": "Guild Id",
+                        "name": "guildId",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "Enter Message to be Sent to Discord",
+                        "name": "Message",
+                        "in": "body",
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 ],
                 "responses": {
