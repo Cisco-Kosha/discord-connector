@@ -1,16 +1,52 @@
 {
   "version": "2.0.0",
+  "oauth2_provider_name": "discord",
   "fields": [
     {
-      "field": "BOT_TOKEN",
-      "displayName": "discord BOT TOKEN",
+      "field": "API_KEY",
+      "displayName": "Discord API Key",
       "type": "String",
-      "minLength": 6,
-      "maxLength": 20,
+      "minLength": 4,
+      "maxLength": 80,
       "required": true,
-      "description": "discord user BOT TOKEN",
-      "example": "NPfWE2p1H7yBzIXnRB",
-      "helpSection": "Login to your discord account \n Go to Dashboard -> Edit Profile \n To the right side, you should see the API key associated with your user account"
+      "description": "Discord Token for the Kosha Bot",
+      "example": "Bot NPfWE2p1H7yBzIXnRB",
+      "helpSection": "Provide the Kosha Bot Token ID prefixed by Bot and a <space>"
+    },
+    {
+      "field": "API_KEY_HEADER_NAME",
+      "displayName": "Discord API Key Header Name",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord API Key Header Name",
+      "example": "Authorization",
+      "default": "Authorization"
+    },
+    {
+      "field": "AUTH_TYPE",
+      "displayName": "Discord Auth Type",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord API Auth Type",
+      "default": "API_KEY",
+      "example": "API_KEY",
+      "helpSection": ""
+    },
+    {
+      "field": "SERVER_URL",
+      "displayName": "Discord Server URL",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord API Server URL",
+      "default": "https://discordapp.com/api",
+      "example": "https://discordapp.com/api",
+      "helpSection": "Use the default value https://discordapp.com/api"
     }
   ]
 }
