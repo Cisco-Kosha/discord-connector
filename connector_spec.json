@@ -47,6 +47,28 @@
       "default": "https://discordapp.com/api",
       "example": "https://discordapp.com/api",
       "helpSection": "Use the default value https://discordapp.com/api"
+    },
+    {
+      "field": "provider",
+      "displayName": "OAuth2 Provider Name",
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord OAuth2 provider name",
+      "example": "discord",
+      "helpSection": "Discord OAuth2 provider name"
+    },
+    {
+      "field": "email",
+      "displayName": "Email fetched from OAuth2 auth flow",
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord email fetched from OAuth2 auth flow",
+      "example": "bob@email.com",
+      "helpSection": "Discord email fetched from OAuth2 auth flow"
     }
   ]
 }
