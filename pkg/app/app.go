@@ -3,7 +3,9 @@ package app
 import (
 	"log"
 	"net/http"
+	"os"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/kosha/discord-connector/pkg/config"
 	"github.com/kosha/discord-connector/pkg/logger"
@@ -37,5 +39,6 @@ func (a *App) Initialize(log logger.Logger) {
 
 // Run starts the app and serves on the specified addr
 func (a *App) Run(addr string) {
-	log.Fatal(http.ListenAndServe(addr, a.Router))
+	loggedRouter := handlers.LoggingHandler(os.Stdout, a.Router)
+	log.Fatal(http.ListenAndServe(addr, loggedRouter))
 }

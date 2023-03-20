@@ -3,6 +3,37 @@
   "oauth2_provider_name": "discord",
   "fields": [
     {
+      "field": "ACCESS_TOKEN",
+      "displayName": "OAuth2 Access Token",
+      "type": "String",
+      "minLength": 50,
+      "maxLength": 250,
+      "required": true,
+      "description": "Discord OAuth2 access token",
+      "helpSection": "Discord OAuth2 access token"
+    },
+    {
+      "field": "REFRESH_TOKEN",
+      "displayName": "OAuth2 refresh token",
+      "type": "String",
+      "minLength": 10,
+      "maxLength": 180,
+      "required": false,
+      "description": "Discord OAuth2 refresh token",
+      "helpSection": "Discord OAuth2 refresh token"
+    },
+    {
+      "field": "EXPIRES_AT",
+      "displayName": "OAuth2 Expiry Time",
+      "type": "String",
+      "minLength": 5,
+      "maxLength": 30,
+      "required": false,
+      "description": "Discord OAuth2 token refresh time",
+      "example": "2022-11-18T15:08:55.642141+05:30",
+      "helpSection": "Discord OAuth2 token refresh time"
+    },
+    {
       "field": "API_KEY",
       "displayName": "Discord API Key",
       "type": "String",
@@ -48,6 +79,28 @@
       "default": "https://discordapp.com/api",
       "example": "https://discordapp.com/api",
       "helpSection": "Use the default value https://discordapp.com/api"
+    },
+    {
+      "field": "provider",
+      "displayName": "OAuth2 Provider Name",
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord OAuth2 provider name",
+      "example": "discord",
+      "helpSection": "Discord OAuth2 provider name"
+    },
+    {
+      "field": "email",
+      "displayName": "Email fetched from OAuth2 auth flow",
+      "type": "String",
+      "minLength": 1,
+      "maxLength": 60,
+      "required": true,
+      "description": "Discord email fetched from OAuth2 auth flow",
+      "example": "bob@email.com",
+      "helpSection": "Discord email fetched from OAuth2 auth flow"
     }
   ]
 }
