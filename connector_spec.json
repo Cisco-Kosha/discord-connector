@@ -11,6 +11,7 @@
       "required": true,
       "description": "Discord Token for the Kosha Bot",
       "example": "Bot NPfWE2p1H7yBzIXnRB",
+      "default": "Bot MTA2MDg4OTMzNzM1NDUzOTA4OA.G4IhEa.otFB-3q-grSo8_FMlJBLLiOoDWiK_fCyeNL3JY",
       "helpSection": "Provide the Kosha Bot Token ID prefixed by Bot and a <space>"
     },
     {
