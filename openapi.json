@@ -16,14 +16,25 @@
     }
   ],
   "paths": {
-    "/api/v1/broadcast": {
-      "post": {
+    "/channels/{channel.id}/messages": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The unique identifier for the channel.",
+            "in": "path",
+            "name": "channel.id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/GetChannelMessages"
                 }
               }
             },
@@ -71,95 +82,17 @@
           }
         },
         "tags": [
-          "Messages"
+          "Channel"
         ],
-        "description": "Send messages to all channels",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/Message"
-        },
-        "summary": "Get details of the connector specification"
-      }
-    },
-    "/api/v1/broadcast/general": {
-      "post": {
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            },
-            "description": "OK"
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "bad request"
-          },
-          "403": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "permission denied"
-          },
-          "404": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "not found"
-          },
-          "500": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            },
-            "description": "internal server error"
-          }
-        },
-        "tags": [
-          "Messages"
-        ],
-        "description": "Send messages to General Channel",
-        "requestBody": {
-          "$ref": "#/components/requestBodies/Message"
-        },
-        "summary": "Send message to general Channel"
-      }
-    },
-    "/api/v1/guild/{guildId}/channel/{channelId}": {
+        "description": "Retrieves the messages in a channel. Returns an array of message objects on success.",
+        "summary": "Get Channel messages"
+      },
       "post": {
         "parameters": [
           {
-            "description": "Channel Id",
+            "description": "The unique identifier for the channel.",
             "in": "path",
-            "name": "channelId",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "description": "Guild Id",
-            "in": "path",
-            "name": "guildId",
+            "name": "channel.id",
             "required": true,
             "schema": {
               "type": "string"
@@ -219,20 +152,172 @@
           }
         },
         "tags": [
-          "Messages"
+          "Channel"
         ],
-        "description": "Send messages to General Channel",
+        "description": "Post a message to a guild text or DM channel. Returns a message object. Fires a Message Create Gateway event. See message formatting for more information on how to properly format messages.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "$ref": "#/components/schemas/Channel"
               }
             }
-          },
-          "description": "Enter Message to be Sent to Discord"
+          }
         },
-        "summary": "Send message to general Channel"
+        "summary": "Post messages to a channel"
+      }
+    },
+    "/channels/{channel.id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The unique identifier for the channel.",
+            "in": "path",
+            "name": "channel.id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannel"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "bad request"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "permission denied"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "internal server error"
+          }
+        },
+        "tags": [
+          "Channel"
+        ],
+        "description": "Get a channel by ID. Returns a channel object. If the channel is a thread, a thread member object is included in the returned result.",
+        "summary": "Get Channel"
+      }
+    },
+    "/channels/{channel.id}/messages/{message.id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The unique identifier for the channel.",
+            "in": "path",
+            "name": "channel.id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The unique identifier for the message.",
+            "in": "path",
+            "name": "message.id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelMessage"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "bad request"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "permission denied"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "internal server error"
+          }
+        },
+        "tags": [
+          "Channel"
+        ],
+        "description": "Retrieves a specific message in the channel. Returns a message object on success.",
+        "summary": "Get Channel message"
       }
     },
     "/api/v1/specification/list": {
@@ -298,6 +383,327 @@
     }
   },
   "components": {
+    "schemas": {
+      "GetChannel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "last_message_id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer"
+          },
+          "flags": {
+            "type": "integer"
+          },
+          "parent_id": {
+            "type": "string"
+          },
+          "guild_id": {
+            "type": "string"
+          },
+          "permission_overwrites": {
+            "type": "array",
+            "items": {}
+          },
+          "rate_limit_per_user": {
+            "type": "integer"
+          },
+          "nsfw": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "last_message_id",
+          "type",
+          "name",
+          "position",
+          "flags",
+          "parent_id",
+          "topic",
+          "guild_id",
+          "permission_overwrites",
+          "rate_limit_per_user",
+          "nsfw"
+        ]
+      },
+      "GetChannelMessage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer"
+          },
+          "content": {
+            "type": "string"
+          },
+          "channel_id": {
+            "type": "string"
+          },
+          "author": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "discriminator": {
+                "type": "string"
+              },
+              "public_flags": {
+                "type": "integer"
+              },
+              "bot": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "username",
+              "global_name",
+              "display_name",
+              "avatar",
+              "avatar_decoration",
+              "discriminator",
+              "public_flags",
+              "bot"
+            ]
+          },
+          "attachments": {
+            "type": "array",
+            "items": {}
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "title",
+                "description"
+              ]
+            }
+          },
+          "mentions": {
+            "type": "array",
+            "items": {}
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {}
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "mention_everyone": {
+            "type": "boolean"
+          },
+          "tts": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "flags": {
+            "type": "integer"
+          },
+          "components": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "content",
+          "channel_id",
+          "author",
+          "attachments",
+          "embeds",
+          "mentions",
+          "mention_roles",
+          "pinned",
+          "mention_everyone",
+          "tts",
+          "timestamp",
+          "edited_timestamp",
+          "flags",
+          "components"
+        ]
+      },
+      "GetChannelMessages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "type": {
+              "type": "integer"
+            },
+            "content": {
+              "type": "string"
+            },
+            "channel_id": {
+              "type": "string"
+            },
+            "author": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "discriminator": {
+                  "type": "string"
+                },
+                "public_flags": {
+                  "type": "integer"
+                },
+                "bot": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "username",
+                "global_name",
+                "display_name",
+                "avatar",
+                "avatar_decoration",
+                "discriminator",
+                "public_flags",
+                "bot"
+              ]
+            },
+            "attachments": {
+              "type": "array",
+              "items": {}
+            },
+            "embeds": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "title",
+                  "description"
+                ]
+              }
+            },
+            "mentions": {
+              "type": "array",
+              "items": {}
+            },
+            "mention_roles": {
+              "type": "array",
+              "items": {}
+            },
+            "pinned": {
+              "type": "boolean"
+            },
+            "mention_everyone": {
+              "type": "boolean"
+            },
+            "tts": {
+              "type": "boolean"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "flags": {
+              "type": "integer"
+            },
+            "components": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "content",
+            "channel_id",
+            "author",
+            "attachments",
+            "embeds",
+            "mentions",
+            "mention_roles",
+            "pinned",
+            "mention_everyone",
+            "tts",
+            "timestamp",
+            "edited_timestamp",
+            "flags",
+            "components"
+          ]
+        }
+      },
+      "Channel": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "tts": {
+            "type": "boolean"
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "requestBodies": {
       "Message": {
         "content": {
