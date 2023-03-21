@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "/"
+      "url": "https://test-discord.acmecorp.appn.cloud"
     }
   ],
   "paths": {
@@ -85,6 +85,7 @@
           "Channel"
         ],
         "description": "Retrieves the messages in a channel. Returns an array of message objects on success.",
+        "operationId": "get_all_messages_in_a_channel",
         "summary": "Get Channel messages"
       },
       "post": {
@@ -164,6 +165,7 @@
             }
           }
         },
+        "operationId": "post_messages_in_a_channel",
         "summary": "Post messages to a channel"
       }
     },
@@ -235,6 +237,7 @@
         "tags": [
           "Channel"
         ],
+        "operationId": "get_channel",
         "description": "Get a channel by ID. Returns a channel object. If the channel is a thread, a thread member object is included in the returned result.",
         "summary": "Get Channel"
       }
@@ -317,6 +320,7 @@
           "Channel"
         ],
         "description": "Retrieves a specific message in the channel. Returns a message object on success.",
+        "operationId": "get_specific_message_in_a_channel",
         "summary": "Get Channel message"
       }
     },
