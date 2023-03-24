@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "https://test-discord.acmecorp.appn.cloud"
+      "url": "/"
     }
   ],
   "paths": {
