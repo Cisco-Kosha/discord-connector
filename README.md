@@ -1,59 +1,37 @@
 # Kosha Discord Connector
 
-Discord is a VoIP and instant messaging social platform. Users have the ability to communicate with voice calls, video calls, text messaging, media and files in private chats or as part of communities called "servers".
+Discord is a social platform that enables you to communicate via voice, video, or chat—and to share files and media—in public or private communities called "guilds" (or "servers").
 
-The connector APIs allow you to perform 'RESTful' operations such as reading, modifying, adding or deleting data from your helpdesk. The APIs also support Cross-Origin Resource Sharing (CORS).
+Using the Kosha Discord connector, you can perform REST API operations such as reading, modifying, adding, or deleting data from your Discord servers. The connector also support Cross-Origin Resource Sharing (CORS).
 
-In order to use Discord connector, you need to provide the bot access to a server for which you have admin access. Once the bot is added it can perform various operations as specified by the API specification.
-
-
-## Bot vs User Accounts
-
-Discord's API provides a separate type of user account dedicated to automation, called a bot account. Bot accounts can be created through the applications page, and are authenticated using a token (rather than a username and password). Unlike the normal OAuth2 flow, bot accounts have full access to most API routes without using bearer tokens, and can connect to the Real Time Gateway. Automating normal user accounts (generally called "self-bots") outside of the OAuth2/bot API is forbidden, and can result in account termination if found.
-
-Bot accounts have a few differences in comparison to normal user accounts, namely:
-
-* Bots are added to guilds through the OAuth2 API, and cannot accept normal invites.
-* Bots cannot have friends, nor be added to or join Group DMs.
-* Verified bots do not have a maximum number of Guilds.
-* Bots have an entirely separate set of Rate Limits.
-
-Discord connector uses a bot behind the scenes.
-
-## What is possible with Discord APIs?
-
-The Discord APIs provide your applications with direct access to the Discord Platform, giving you the ability to:
+Using the Discord API, your Kosha workflow or application can directly access the Discord platform to:
 
 * Interact with channels
 * Manage channel messages
-* Guilds
+* Mange guilds
+* And much more!
 
-and much more!
-
-Discord's API is based around two core layers, a HTTPS/REST API for general operations, and persistent secure WebSocket based connection for sending and subscribing to real-time events. The most common use case of the Discord API will be providing a service, or access to a platform through the OAuth2 API.
-
+Discord's API is based on two core layers, a HTTPS/REST API for general operations and a persistent secure WebSocket connection for sending and subscribing to real-time events. The Discord API is most commonly used to provide services, or access to a platform, through the OAuth2 API. 
 
 ## Useful Actions 
 
-### Channels
+You can use the Kosha Discord connector to perform several useful operations to manage your Discord channels and guilds. 
 
-Represents a guild or DM channel within Discord.
+### Managing Channels
 
 - Get channel information
 - Get channel messages
 - Create messages
 - Delete message
 
-### Guilds
-
-Guilds in Discord represent an isolated collection of users and channels, and are often referred to as "servers"
+### Managing Guilds
 
 - Get Guilds
 - Modify Guilds
 - Delete Guilds
 - Create Guilds
 
-Refer to the Discord connector [API specification](openapi.json) for details.
+Refer to the Kosha Discord connector [API specification](openapi.json) for details.
 
 ## Example Usage
 
@@ -61,9 +39,16 @@ Refer to the Discord connector [API specification](openapi.json) for details.
 
 ## Authentication
 
-Authenticating with the Discord API can be done in one of two ways:
+Authentication to the Discord API can be done by bot or OAuth 2:
 
-- Using a bot token gained by registering a bot, for more information on bots see bots vs user accounts.
-- Using an OAuth2 bearer token gained through the OAuth2 API.
+### Bot Authentication
 
-For all authentication types, authentication is performed with the Authorization HTTP header in the format Authorization: TOKEN_TYPE TOKEN.
+In Discord, bots are added to all applications and are authenticated using a token, as opposed to a username or password. To use a bot for authentication with the Kosha Discord connector, you must add the bot to a server for which you have admin access. After you add the bot and grant it access, it can perform any operations provided in the API specification. For details about bots, refer to the [Discord Bot documentation](https://discord.com/developers/docs/topics/oauth2#bot-users).
+
+### OAuth 2 Authentication
+
+Use an OAuth2 bearer token gained through the [Discord OAuth2 API](https://discord.com/developers/docs/topics/oauth2#oauth2).
+
+For all authentication types, authentication is performed with the Authorization HTTP header in the following format:
+
+`Authorization: TOKEN_TYPE TOKEN`
