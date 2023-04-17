@@ -36,17 +36,25 @@ Refer to the Kosha Discord connector [API specification](openapi.json) for detai
 
 ## Example Usage
 
-< sdk example? >
+The following posts a message to a channel:
+
+```
+curl -v \
+-H "Authorization: Bot TOKEN" \
+-H "Content-Type: application/json" \
+-d '{"content":"Posting as a bot"}' \
+https://discordapp.com/api/channels/CHANNELID/messages
+```
 
 ## Authentication
 
-Authentication to the Discord API can be done by bot or OAuth 2:
+Authentication to the Discord API can be done by bot or OAuth2:
 
 ### Bot Authentication
 
 In Discord, bots are added to all applications and are authenticated using a token, as opposed to a username or password. To use a bot for authentication with the Kosha Discord connector, you must add the bot to a server for which you have admin access. After you add the bot and grant it access, it can perform any operations provided in the API specification. For details about bots, refer to the [Discord Bot documentation](https://discord.com/developers/docs/topics/oauth2#bot-users).
 
-### OAuth 2 Authentication
+### OAuth2 Authentication
 
 Use an OAuth2 bearer token gained through the [Discord OAuth2 API](https://discord.com/developers/docs/topics/oauth2#oauth2).
 
