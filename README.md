@@ -1,5 +1,7 @@
 # Kosha Discord Connector
 
+![Discord](images/Discord.png)
+
 Discord is a social platform that enables you to communicate via voice, video, or chat—and to share files and media—in public or private communities called "guilds" (or "servers").
 
 Using the Kosha Discord connector, you can perform REST API operations such as reading, modifying, adding, or deleting data from your Discord servers. 
