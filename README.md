@@ -9,7 +9,6 @@ Using the Discord API, your Kosha workflow or application can directly access th
 * Interact with channels
 * Manage channel messages
 * Mange guilds
-* And much more!
 
 Discord's API is based on two core layers, a HTTPS/REST API for general operations and a persistent secure WebSocket connection for sending and subscribing to real-time events. The Discord API is most commonly used to provide services, or access to a platform, through the OAuth2 API. 
 
