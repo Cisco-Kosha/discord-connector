@@ -2,7 +2,7 @@
 
 Discord is a social platform that enables you to communicate via voice, video, or chat—and to share files and media—in public or private communities called "guilds" (or "servers").
 
-Using the Kosha Discord connector, you can perform REST API operations such as reading, modifying, adding, or deleting data from your Discord servers. The connector also supports Cross-Origin Resource Sharing (CORS).
+Using the Kosha Discord connector, you can perform REST API operations such as reading, modifying, adding, or deleting data from your Discord servers. 
 
 Using the Discord API, your Kosha workflow or application can directly access the Discord platform to:
 
