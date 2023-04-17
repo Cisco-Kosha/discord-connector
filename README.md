@@ -18,6 +18,8 @@ Discord's API is based on two core layers, a HTTPS/REST API for general operatio
 
 You can use the Kosha Discord connector to perform several useful operations to manage your Discord channels and guilds. 
 
+Refer to the Kosha Discord connector [API specification](openapi.json) for details.
+
 ### Managing Channels
 
 - Get channel information
@@ -31,8 +33,6 @@ You can use the Kosha Discord connector to perform several useful operations to 
 - Modify Guilds
 - Delete Guilds
 - Create Guilds
-
-Refer to the Kosha Discord connector [API specification](openapi.json) for details.
 
 ## Example Usage
 
