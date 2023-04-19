@@ -48,7 +48,7 @@ https://discordapp.com/api/channels/CHANNELID/messages
 
 ## Authentication
 
-Authentication to the Discord API can be done by bot or OAuth2:
+Authentication to the Discord API can be done by bot or OAuth2.
 
 ### Bot Authentication
 
