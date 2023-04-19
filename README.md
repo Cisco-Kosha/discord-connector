@@ -36,7 +36,7 @@ Refer to the Kosha Discord connector [API specification](openapi.json) for detai
 
 ## Example Usage
 
-The following posts a message to a channel:
+The following request posts a message to a channel:
 
 ```
 curl -v \
