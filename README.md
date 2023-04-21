@@ -44,7 +44,7 @@ https://discordapp.com/api/channels/CHANNELID/messages
 
 ## Authentication
 
-Authentication to the Discord API can be done by bot or OAuth2.
+ When provisioning the Kosha Discord connector, authentication to the Discord API can be done by bot or OAuth2.
 
 ### Bot Authentication
 
