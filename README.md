@@ -53,4 +53,3 @@ In Discord, bots are added to all applications and are authenticated using a tok
 ### OAuth2 Authentication
 
 Use an OAuth2 bearer token gained through the [Discord OAuth2 API](https://discord.com/developers/docs/topics/oauth2#oauth2).
-
