@@ -30,18 +30,6 @@ Refer to the Kosha Discord connector [API specification](openapi.json) for detai
 - Delete Guilds
 - Create Guilds
 
-## Example Usage
-
-The following request posts a message to a channel:
-
-```
-curl -v \
--H "Authorization: Bot TOKEN" \
--H "Content-Type: application/json" \
--d '{"content":"Posting as a bot"}' \
-https://discordapp.com/api/channels/CHANNELID/messages
-```
-
 ## Authentication
 
  When provisioning the Kosha Discord connector, authentication to the Discord API can be done by bot or OAuth2.
