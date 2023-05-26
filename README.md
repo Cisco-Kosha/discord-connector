@@ -39,3 +39,9 @@ In Discord, bots are added to all applications and are authenticated using a tok
 ### OAuth2 Authentication
 
 Use an OAuth2 bearer token gained through the [Discord OAuth2 API](https://discord.com/developers/docs/topics/oauth2#oauth2).
+
+## Kosha Connector Open Source Development
+
+All connectors Kosha shares on the marketplace are open source. We believe in fostering collaboration and open development. Everyone is welcome to contribute their ideas, improvements, and feedback for any Kosha connector. We encourage community engagement and appreciate any contributions that align with our goals of an open and collaborative API management platform.
+
+Refer to the contribution guidelines for details.
